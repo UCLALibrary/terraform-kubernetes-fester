@@ -8,10 +8,14 @@ branches:
 
 before_install:
   - export TERRAFORM_VERSION="0.12.20"
-  - curl "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o /usr/local/bin/terraform
-  - chmod +x !$
+  - wget "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+  - mkdir bin && unzip *.zip -d bin
+  - chmod +x bin/terraform
+  - export PATH="$(pwd)/bin:$PATH"
 
 script:
+  - terraform version
+  - terraform init -backend=false
   - terraform validate
 
 notifications:
