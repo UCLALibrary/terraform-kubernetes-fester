@@ -79,6 +79,26 @@ variable "fester_deployment_s3_secret_key" {
   default = "enteryours3secretkey"
 }
 
+variable "fester_deployment_cpu_limit" {
+  type = string
+  default = "1"
+}
+
+variable "fester_deployment_cpu_request" {
+  type = string
+  default = "0.5"
+}
+
+variable "fester_deployment_memory_limit" {
+  type = string
+  default = "1024Mi"
+}
+
+variable "fester_deployment_memory_request" {
+  type = string
+  default = "256Mi"
+}
+
 locals {
   fester_deployment_container_image_full_url = "${var.fester_deployment_container_image_url}:${var.fester_deployment_container_image_version}"
 }

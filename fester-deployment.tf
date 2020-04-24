@@ -27,6 +27,17 @@ resource "kubernetes_deployment" "fester" {
           name  = var.fester_deployment_container_name
           image_pull_policy = var.fester_deployment_container_image_pull_policy
 
+          resources {
+            limits {
+              cpu = var.fester_deployment_cpu_limit
+              memory = var.fester_deployment_memory_limit
+            }
+            requests {
+              cpu = var.fester_deployment_cpu_request
+              memory = var.fester_deployment_memory_request
+            }
+          }
+
           port {
             container_port = var.fester_deployment_container_port
           }
