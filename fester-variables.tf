@@ -86,7 +86,7 @@ variable "fester_deployment_cpu_limit" {
 
 variable "fester_deployment_cpu_request" {
   type = string
-  default = "0.5"
+  default = "0.25"
 }
 
 variable "fester_deployment_memory_limit" {
@@ -96,7 +96,7 @@ variable "fester_deployment_memory_limit" {
 
 variable "fester_deployment_memory_request" {
   type = string
-  default = "256Mi"
+  default = "128Mi"
 }
 
 locals {
